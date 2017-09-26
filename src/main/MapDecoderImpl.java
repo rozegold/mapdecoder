@@ -19,13 +19,10 @@ public class MapDecoderImpl implements MapDecoder {
 
         String[] keyAndValueStr = splitByAmpSymbol(input);
 
-        Map<String, String> resultMap = Arrays
+        return Arrays
                 .stream(keyAndValueStr)
                 .map(this::splitByEqualsSymbol)
                 .collect(Collectors.toMap(inputArr -> inputArr[0], inputArr -> inputArr[1]));
-
-
-        return resultMap;
     }
 
     public String[] splitByAmpSymbol(String input) {
